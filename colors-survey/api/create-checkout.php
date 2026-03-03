@@ -42,13 +42,13 @@ $result = stripeRequest('/checkout/sessions', [
     'line_items[0][price]' => STRIPE_PRICE_ID,
     'line_items[0][quantity]' => 1,
     'customer_email' => $email,
-    'success_url' => 'https://peoplestar.com/ColorChemistry/?payment=success&session_id={CHECKOUT_SESSION_ID}',
-    'cancel_url' => 'https://peoplestar.com/ColorChemistry/?payment=cancelled',
+    'success_url' => 'https://peoplestar.com/colors-survey/?payment=success&session_id={CHECKOUT_SESSION_ID}',
+    'cancel_url' => 'https://peoplestar.com/colors-survey/?payment=cancelled',
     'metadata[email]' => $email,
 ]);
 
 if ($result['code'] !== 200 || empty($result['body']['url'])) {
-    error_log('ColorChemistry Stripe error: ' . json_encode($result['body']));
+    error_log('colors-survey Stripe error: ' . json_encode($result['body']));
     http_response_code(500);
     echo json_encode(['error' => 'Failed to create checkout session']);
     exit;

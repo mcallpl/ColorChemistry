@@ -73,7 +73,7 @@ try {
 
     echo json_encode(['success' => true, 'id' => $insertId]);
 } catch (PDOException $e) {
-    error_log('ColorChemistry save error: ' . $e->getMessage());
+    error_log('colors-survey save error: ' . $e->getMessage());
     http_response_code(500);
     echo json_encode(['error' => 'Failed to save results']);
 }
@@ -211,7 +211,7 @@ function sendNotificationEmail($firstName, $lastName, $email, $red, $yellow, $gr
     <!-- Footer -->
     <p style="text-align:center;color:#94a3b8;font-size:11px;margin-top:20px;">
         Color Chemistry &mdash; Personality Color Assessment<br>
-        <a href="https://peoplestar.com/ColorChemistry/admin.html" style="color:#6366f1;">View Admin Dashboard</a>
+        <a href="https://peoplestar.com/colors-survey/admin.html" style="color:#6366f1;">View Admin Dashboard</a>
     </p>
 </div>
 </body>
